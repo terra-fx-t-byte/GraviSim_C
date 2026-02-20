@@ -1,6 +1,10 @@
 #include "raylib.h"
 #include "stdbool.h"
 
+#define SOFTENING 0.01f
+
+#define GRAVITYCONST 0.1f
+
 typedef struct Solar_body{
     float mass;
     Color color;
@@ -15,4 +19,4 @@ typedef struct Solar_body{
 } Solar_body;
 
 Solar_body GetSolarBody(float size_inner, float mass_inner, Color color_inner, Vector3 position_inner, Vector3 velocity_inner);
-void UpdateSolarBodies(Solar_body** SolarBodies, unsigned int amount);
+void UpdateSolarBodies(Solar_body* SolarBodies, unsigned int amount, float deltatime);

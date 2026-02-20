@@ -1,5 +1,5 @@
-CC = clang
-CFLAGS = -I./src/headers -Wall -Wextra -O2 -lraylib 
+CC = gcc
+CFLAGS = -I./src/headers -Wall -Wextra -O3 -lraylib 
 LFLAGS = -lm
 
 
