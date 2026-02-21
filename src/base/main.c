@@ -9,16 +9,17 @@ const int screenHeight = 720;
 int main() {
     InitWindow(screenWidth, screenHeight, "Simulation");
     SetTargetFPS(100);
-
+    
     PlayerCamera P_CAM = Set3DCamera(25.0f, 0.1f, (Vector3){0.0f, 100.0f, 0.0f});
 
     // Array of bodies (contiguous in memory)
-    Solar_body simulation[2] = {
-        GetSolarBody(10.0f, 1.0e7f, ORANGE, (Vector3){0.0f, 0.0f, 0.0f}, (Vector3){0.0f, 0.0f, 0.0f}),
-        GetSolarBody(4.0f, 1.0e3f, BLUE, (Vector3){150.0f, 50.0f, 0.0f}, (Vector3){0.0f, .0f, -75.0f})
+    Solar_body simulation[] = {
+        GetSolarBody(4.0f, 1.0e4f, GREEN, (Vector3){50.0f, -50.0f, 50.0f}, (Vector3){-10.5f, 0.0f, 10.0f}),
+        GetSolarBody(4.0f, 1.0e6f, ORANGE, (Vector3){0.0f, 0.0f, 0.0f}, (Vector3){0.0f, 0.0f, 0.0f}),
+        GetSolarBody(4.0f, 1.0e5f, GRAY, (Vector3){-100.0f, 0.0f, -100.0f}, (Vector3){15.5f, 0.0f, -2.0f}),
     };
 
-    unsigned int simsize = 2;
+    unsigned int simsize = (sizeof(simulation) / sizeof(simulation[0]));
 
     // Load 3D models for each body
     for (unsigned int i = 0; i < simsize; ++i) {
